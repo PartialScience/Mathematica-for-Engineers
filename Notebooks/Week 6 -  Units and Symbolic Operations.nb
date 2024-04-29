@@ -1,0 +1,258 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9704,        250]
+NotebookOptionsPosition[      7282,        204]
+NotebookOutlinePosition[      7726,        221]
+CellTagsIndexPosition[      7683,        218]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Unit Analysis", "Section",
+ CellChangeTimes->{{3.917355275381763*^9, 
+  3.9173552805839076`*^9}},ExpressionUUID->"dfcca250-4f8b-4cec-9ca7-\
+c5dacd484ad5"],
+
+Cell[TextData[{
+ "Units using ",
+ ButtonBox["Quantity[]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/Quantity.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/Quantity.html"]
+}], "Subsection",
+ CellChangeTimes->{{3.917355545366809*^9, 
+  3.9173556321828513`*^9}},ExpressionUUID->"93bb762b-87f3-499c-b543-\
+f9e61642dd24"],
+
+Cell[CellGroupData[{
+
+Cell["Units using Free-form Input", "Subsection",
+ CellChangeTimes->{{3.917355545366809*^9, 
+  3.91735567831826*^9}},ExpressionUUID->"53c0a61c-d46c-45d0-84de-\
+131c632e7c3e"],
+
+Cell[TextData[{
+ "Free-form input is typed using ctrl+= \nAfter pressing that combination of \
+keys you should get a little box that you can type in. This box will try to \
+interpret basic sentences or phrases and return what you asked for. For \
+instance typing \[OpenCurlyDoubleQuote]thermal conductivity of carbon steel\
+\[CloseCurlyDoubleQuote] returns ",
+ Cell[BoxData[
+  TemplateBox[{"320.", 
+    RowBox[{"\"in\"", "\[ThinSpace]", 
+      SubscriptBox["\"BTU\"", "\"IT\""], "\[InvisibleSpace]", "\"/(\"", 
+      "\[InvisibleSpace]", 
+      SuperscriptBox["\"ft\"", "2"], "\[InvisibleSpace]", "\"h\"", 
+      "\[ThinSpace]", 
+      RowBox[{
+        TemplateBox[{
+         "\"\[InvisiblePrefixScriptBase]\"", "\"\[CapitalDelta]\"", 
+          "\"\[EmptySmallCircle]\""}, "Subsuperscript", SyntaxForm -> 
+         SubsuperscriptBox], "\"F\""}], "\[InvisibleSpace]", "\")\""}], 
+    "inch IT British thermal units per foot squared hour Fahrenheit degree \
+difference", 
+    FractionBox[
+     RowBox[{"\"Inches\"", " ", "\"InternationalTableBritishThermalUnits\""}], 
+     RowBox[{"\"DegreesFahrenheitDifference\"", " ", 
+       SuperscriptBox["\"Feet\"", "2"], " ", "\"Hours\""}]]},
+   "Quantity"]], "Input",ExpressionUUID->
+  "c75c3b87-b0cc-439c-bba6-c56813b19e0d"]
+}], "Text",
+ CellChangeTimes->{{3.917355681373476*^9, 3.917355757522019*^9}, {
+  3.9173558017097096`*^9, 
+  3.9173559204723797`*^9}},ExpressionUUID->"8da895d9-0e58-474c-97ab-\
+8ab87127dc24"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Using ",
+ ButtonBox["UnitConvert[]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/UnitConvert.html"], None},
+  ButtonNote->"https://reference.wolfram.com/language/ref/UnitConvert.html"]
+}], "Subsection",
+ CellChangeTimes->{{3.917355545366809*^9, 3.91735567831826*^9}, {
+  3.9173562330151834`*^9, 3.917356257795374*^9}, {3.917356329057967*^9, 
+  3.9173563296419425`*^9}},ExpressionUUID->"96b70fb7-1814-4223-9dcc-\
+341cf58fdc36"],
+
+Cell[TextData[{
+ "Using ",
+ ButtonBox["QuantityMagnitude[]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/ref/QuantityMagnitude.html"], 
+    None},
+  ButtonNote->
+   "https://reference.wolfram.com/language/ref/QuantityMagnitude.html"]
+}], "Subsection",
+ CellChangeTimes->{{3.917355545366809*^9, 3.91735567831826*^9}, {
+  3.9173562330151834`*^9, 3.917356257795374*^9}, {3.9173562936837845`*^9, 
+  3.917356340695426*^9}},ExpressionUUID->"588f0af8-30e0-4bde-b0e9-\
+d52c9f0a1751"],
+
+Cell["Independent Units ", "Subsection",
+ CellChangeTimes->{{3.917355545366809*^9, 3.91735567831826*^9}, {
+  3.917356360685271*^9, 3.9173563651921377`*^9}, {3.917373908215083*^9, 
+  3.917373921548442*^9}},ExpressionUUID->"bf9d8c25-769a-484c-a1c5-\
+17c7d3823c6e"],
+
+Cell["What can we actually do with this? ", "Subsection",
+ CellChangeTimes->{{3.917355545366809*^9, 3.91735567831826*^9}, {
+  3.917356360685271*^9, 
+  3.9173563651921377`*^9}},ExpressionUUID->"400462cd-dd3f-4c6f-9a5c-\
+d2bc26a942e6"]
+}, Closed]],
+
+Cell["Symbolic Replacements ", "Section",
+ CellChangeTimes->{{3.9180092077133894`*^9, 
+  3.9180092120690575`*^9}},ExpressionUUID->"029c5fd1-0517-49da-a85f-\
+97201bf58087"],
+
+Cell[CellGroupData[{
+
+Cell["Symbolic Simplification", "Section",
+ CellChangeTimes->{{3.9180092198789244`*^9, 
+  3.9180092276964903`*^9}},ExpressionUUID->"476afa66-14d0-4e12-983b-\
+b4b28f79cb8c"],
+
+Cell["Simple simplification", "Subsection",
+ CellChangeTimes->{{3.9180489216262836`*^9, 3.9180489254990435`*^9}, 
+   3.918048959030628*^9},ExpressionUUID->"7fede85e-a2c3-4cc2-9501-\
+be6ef7f4e362"],
+
+Cell["Simplification with assumptions", "Subsection",
+ CellChangeTimes->{{3.9180489216262836`*^9, 
+  3.918048933694419*^9}},ExpressionUUID->"13d48e8d-6abe-4e48-b2e7-\
+7639a39a2dbd"],
+
+Cell["FullSimplify vs Simplify ", "Subsection",
+ CellChangeTimes->{{3.9180489216262836`*^9, 3.918048933694419*^9}, {
+  3.918048977485139*^9, 
+  3.9180489817672014`*^9}},ExpressionUUID->"5f3ecdd5-bd73-4b82-aa6e-\
+f3cf47363e36"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solve", "Section",
+ CellChangeTimes->{{3.9180092198789244`*^9, 3.9180092276964903`*^9}, {
+   3.9180099038416204`*^9, 3.918009905252373*^9}, 
+   3.918048986736801*^9},ExpressionUUID->"59b34514-9b60-44fe-9cbe-\
+09e81c726acf"],
+
+Cell["Solving for a single variable", "Subsection",
+ CellChangeTimes->{{3.9180489216262836`*^9, 3.9180489254990435`*^9}, {
+  3.918048959030628*^9, 3.9180490045643244`*^9}, {3.9180499626597743`*^9, 
+  3.9180499637291813`*^9}},ExpressionUUID->"a284d780-a341-4cb7-b0ce-\
+2d59ca6d42f1"],
+
+Cell["Equations with multiple solutions", "Subsection",
+ CellChangeTimes->{{3.9180489216262836`*^9, 3.9180489254990435`*^9}, {
+  3.918048959030628*^9, 
+  3.9180490311083837`*^9}},ExpressionUUID->"0919e75b-bc37-49a3-983d-\
+4c4aafeb2bdc"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Other useful functions", "Section",
+ CellChangeTimes->{{3.9180092198789244`*^9, 3.9180092276964903`*^9}, {
+  3.9180099038416204`*^9, 3.918009905252373*^9}, {3.918011091379367*^9, 
+  3.9180110984223604`*^9}},ExpressionUUID->"5b380c34-b84d-4ce1-9cf1-\
+c984c4e3e914"],
+
+Cell["\<\
+https://reference.wolfram.com/language/tutorial/AlgebraicCalculations.html\
+\>", "Text",
+ CellChangeTimes->{
+  3.918048839858785*^9},ExpressionUUID->"f2b06cc1-9531-4479-ad64-\
+905b855ee5f4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TrigExpand", "[", 
+  RowBox[{"Cos", "[", 
+   RowBox[{"n", " ", "x"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9180500265426917`*^9, 3.9180500699399557`*^9}, {
+  3.9180502629066973`*^9, 3.9180502838415465`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"e249553d-6f4a-41b1-91dd-f0131139b10c"],
+
+Cell[BoxData[
+ RowBox[{"Cos", "[", 
+  RowBox[{"n", " ", "x"}], "]"}]], "Output",
+ CellChangeTimes->{{3.9180500393634634`*^9, 3.918050070331357*^9}, {
+  3.9180502638137226`*^9, 3.9180502841987915`*^9}},
+ CellLabel->"Out[35]=",ExpressionUUID->"36b06256-68ff-4d37-b17c-b961d5417736"]
+}, Open  ]]
+}, Closed]]
+},
+WindowSize->{960, 478},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"296c822c-1c3c-4e5d-8875-a6ee6b7bc5bc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 160, 3, 67, "Section",ExpressionUUID->"dfcca250-4f8b-4cec-9ca7-c5dacd484ad5"],
+Cell[743, 27, 395, 10, 54, "Subsection",ExpressionUUID->"93bb762b-87f3-499c-b543-f9e61642dd24"],
+Cell[CellGroupData[{
+Cell[1163, 41, 174, 3, 38, "Subsection",ExpressionUUID->"53c0a61c-d46c-45d0-84de-131c632e7c3e"],
+Cell[1340, 46, 1458, 30, 87, "Text",ExpressionUUID->"8da895d9-0e58-474c-97ab-8ab87127dc24"]
+}, Open  ]],
+Cell[2813, 79, 494, 11, 54, "Subsection",ExpressionUUID->"96b70fb7-1814-4223-9dcc-341cf58fdc36"],
+Cell[3310, 92, 521, 13, 38, "Subsection",ExpressionUUID->"588f0af8-30e0-4bde-b0e9-d52c9f0a1751"],
+Cell[3834, 107, 262, 4, 38, "Subsection",ExpressionUUID->"bf9d8c25-769a-484c-a1c5-17c7d3823c6e"],
+Cell[4099, 113, 233, 4, 38, "Subsection",ExpressionUUID->"400462cd-dd3f-4c6f-9a5c-d2bc26a942e6"]
+}, Closed]],
+Cell[4347, 120, 171, 3, 53, "Section",ExpressionUUID->"029c5fd1-0517-49da-a85f-97201bf58087"],
+Cell[CellGroupData[{
+Cell[4543, 127, 172, 3, 53, "Section",ExpressionUUID->"476afa66-14d0-4e12-983b-b4b28f79cb8c"],
+Cell[4718, 132, 196, 3, 54, "Subsection",ExpressionUUID->"7fede85e-a2c3-4cc2-9501-be6ef7f4e362"],
+Cell[4917, 137, 181, 3, 38, "Subsection",ExpressionUUID->"13d48e8d-6abe-4e48-b2e7-7639a39a2dbd"],
+Cell[5101, 142, 226, 4, 38, "Subsection",ExpressionUUID->"5f3ecdd5-bd73-4b82-aa6e-f3cf47363e36"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5364, 151, 229, 4, 53, "Section",ExpressionUUID->"59b34514-9b60-44fe-9cbe-09e81c726acf"],
+Cell[5596, 157, 282, 4, 54, "Subsection",ExpressionUUID->"a284d780-a341-4cb7-b0ce-2d59ca6d42f1"],
+Cell[5881, 163, 236, 4, 38, "Subsection",ExpressionUUID->"0919e75b-bc37-49a3-983d-4c4aafeb2bdc"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6154, 172, 270, 4, 53, "Section",ExpressionUUID->"5b380c34-b84d-4ce1-9cf1-c984c4e3e914"],
+Cell[6427, 178, 200, 5, 35, "Text",ExpressionUUID->"f2b06cc1-9531-4479-ad64-905b855ee5f4"],
+Cell[CellGroupData[{
+Cell[6652, 187, 319, 6, 28, "Input",ExpressionUUID->"e249553d-6f4a-41b1-91dd-f0131139b10c"],
+Cell[6974, 195, 280, 5, 32, "Output",ExpressionUUID->"36b06256-68ff-4d37-b17c-b961d5417736"]
+}, Open  ]]
+}, Closed]]
+}
+]
+*)
+

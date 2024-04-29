@@ -1,0 +1,361 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12463,        353]
+NotebookOptionsPosition[      9956,        303]
+NotebookOutlinePosition[     10358,        319]
+CellTagsIndexPosition[     10315,        316]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Note: Today is going to consist of a lot of live examples instead of \
+pre-written ones like some other notebooks\
+\>", "Text",
+ CellChangeTimes->{{3.921670123498415*^9, 
+  3.92167016177211*^9}},ExpressionUUID->"caa76051-8429-4edf-abcb-\
+332ad2e01c5f"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["DSolve",
+ BaseStyle->"Link",
+ ButtonData->"paclet:ref/DSolve"]], "Section",
+ CellChangeTimes->{{3.9216699036430187`*^9, 3.9216699048188844`*^9}, {
+  3.9216699524904127`*^9, 
+  3.921669952498799*^9}},ExpressionUUID->"9ac59d32-5f92-42e5-b945-\
+595a9f9a129a"],
+
+Cell[CellGroupData[{
+
+Cell["Solving Simple, Ordinary Differential Equations", "Subsection",
+ CellChangeTimes->{{3.9216700560220876`*^9, 3.9216700658146935`*^9}, {
+  3.9216812313422837`*^9, 
+  3.9216812316269464`*^9}},ExpressionUUID->"0b28f976-1be7-45ea-80f5-\
+26e6081147a3"],
+
+Cell[TextData[{
+ "Lets solve ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"y", "'"}], "[", "x", "]"}], " ", "+", " ", 
+     RowBox[{"y", "[", "x", "]"}]}], " ", "==", " ", 
+    RowBox[{"a", " ", 
+     RowBox[{"Sin", "[", "x", "]"}], " "}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ff6a3b04-91c2-42d5-bf0a-58f485843b5b"]
+}], "Text",
+ CellChangeTimes->{{3.9216700733968143`*^9, 3.9216701113312974`*^9}, {
+  3.9216703040498195`*^9, 
+  3.921670309919774*^9}},ExpressionUUID->"96268954-a21c-42c8-8b47-\
+12470bf249ac"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.921681216037734*^9, 
+  3.9216812162633076`*^9}},ExpressionUUID->"c3c654bd-639d-4d13-b197-\
+d52aafdaeb73"],
+
+Cell["Now lets give it initial conditions as well", "Text",
+ CellChangeTimes->{{3.9216811985413504`*^9, 
+  3.9216812135876837`*^9}},ExpressionUUID->"1f50f839-2848-4a0d-820a-\
+be68508daed5"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9216812174713435`*^9, 
+  3.921681217683736*^9}},ExpressionUUID->"3d3dd40c-6a74-4ba4-a6f3-\
+847e1fbd8e72"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solving Systems of Ordinary Differential Equations", "Subsection",
+ CellChangeTimes->{{3.9216700560220876`*^9, 3.9216700658146935`*^9}, {
+  3.921681223204069*^9, 
+  3.9216812266212416`*^9}},ExpressionUUID->"a3e08346-a5ff-4f45-bfa8-\
+a3381a2be2fd"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s now look at an example where we want to solve a system \
+of differential equations like:\[LineSeparator]\[LineSeparator]y\
+\[CloseCurlyQuote][t] == a y[t] + b x[t] 
+x\[CloseCurlyQuote][t] == c y[t] + d x[t] \
+\>", "Text",
+ CellChangeTimes->{{3.92168137099804*^9, 3.921681377974757*^9}, {
+  3.921681852217955*^9, 3.9216818642150846`*^9}, {3.921681902029154*^9, 
+  3.921681903305066*^9}},ExpressionUUID->"8e568ae3-ee5e-4001-b556-\
+97c5b38ca7c8"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["More complicated ODEs?", "Subsection",
+ CellChangeTimes->{{3.9216700560220876`*^9, 3.9216700658146935`*^9}, {
+  3.921681223204069*^9, 3.9216812266212416`*^9}, {3.9216824599901495`*^9, 
+  3.921682462585682*^9}},ExpressionUUID->"493acf42-bc71-4277-9078-\
+a1ad54318eb6"],
+
+Cell["\<\
+Can we solve this one?
+y\[CloseCurlyQuote][t] == a y[t] + b x[t] + Cos[t]
+x\[CloseCurlyQuote][t] == c y[t] + d x[t] + t\
+\>", "Text",
+ CellChangeTimes->{{3.921682469771858*^9, 3.9216824963981643`*^9}, {
+  3.921682597699007*^9, 3.9216826104711967`*^9}, {3.921682888169136*^9, 
+  3.921682908351015*^9}, {3.9216847157185864`*^9, 
+  3.921684716020576*^9}},ExpressionUUID->"6b56d3ce-198a-4cf3-af08-\
+e6004421ee28"],
+
+Cell["\<\
+How about this one?
+
+y\[CloseCurlyQuote][t] == a y[t] + b x[t] + Cos[x[t]]
+x\[CloseCurlyQuote][t] == c y[t] + d x[t] + t\
+\>", "Text",
+ CellChangeTimes->{{3.9216829097817307`*^9, 3.9216829200275555`*^9}, {
+  3.9216833221597357`*^9, 3.9216833324166856`*^9}, {3.921684713709649*^9, 
+  3.921684713952281*^9}},ExpressionUUID->"83bbcb80-1ed8-4b34-9f1a-\
+bc57718e5da2"],
+
+Cell[TextData[{
+ "Or what about this one?\n\[LineSeparator]",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    RowBox[{"y", "'"}], "[", "t", "]"}], "==", 
+   RowBox[{"Sin", "[", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"y", "[", "t", "]"}]], "t"}], "]"}]}]], "Input",
+  CellChangeTimes->{{3.9216833555972366`*^9, 3.9216833674697065`*^9}, {
+   3.9216834419949055`*^9, 3.921683468869529*^9}, {3.9216835296624413`*^9, 
+   3.9216835305735903`*^9}},ExpressionUUID->
+  "643b820c-a79c-43ec-b441-890f6eaf5836"]
+}], "Text",
+ CellChangeTimes->{{3.9216833371561613`*^9, 3.9216833820368233`*^9}, {
+   3.9216834288866377`*^9, 3.921683473565736*^9}, 
+   3.9216835534062986`*^9},ExpressionUUID->"d107646e-b68e-4dd6-907f-\
+c0115b537447"]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["NDSolve",
+ BaseStyle->"Link",
+ ButtonData->"paclet:ref/NDSolve"]], "Section",
+ CellChangeTimes->{{3.9216699036430187`*^9, 3.9216699122618637`*^9}, {
+  3.9216699665701475`*^9, 
+  3.9216699665781493`*^9}},ExpressionUUID->"05657010-7625-415e-803b-\
+13429a4edd0f"],
+
+Cell[CellGroupData[{
+
+Cell["Solving Single ODEs Numerically", "Subsection",
+ CellChangeTimes->{{3.921684203988577*^9, 
+  3.9216842125709267`*^9}},ExpressionUUID->"8ad77b7f-38b5-4e0c-b547-\
+77d2199aaf97"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s see how we can solve ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    RowBox[{"y", "'"}], "[", "t", "]"}], "==", 
+   RowBox[{"Sin", "[", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"y", "[", "t", "]"}]], "t"}], "]"}]}]], "Input",
+  CellChangeTimes->{{3.9216833555972366`*^9, 3.9216833674697065`*^9}, {
+   3.9216834419949055`*^9, 3.921683468869529*^9}, {3.9216835296624413`*^9, 
+   3.9216835305735903`*^9}},ExpressionUUID->
+  "db66a80f-cbc5-4583-8519-a87db8920907"],
+ " numerically if we know the initial conditions. For instance, let\
+\[CloseCurlyQuote]s say that at time t=0 we know ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "=", 
+    FractionBox["1", "2"], " "}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "108a19d8-f992-423e-98e5-bb2b88cd8638"],
+ "In other words:\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"y", "[", "0", "]"}], "==", 
+    FractionBox["1", "2"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "dd837b3e-0619-4051-abb0-47ff7b994847"]
+}], "Text",
+ CellChangeTimes->{{3.921683739531457*^9, 3.9216838023072147`*^9}, {
+  3.92168422425519*^9, 
+  3.921684227250497*^9}},ExpressionUUID->"8d1f7299-3ef5-4c88-b5d4-\
+2ffe32dd56b6"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Initial Conditions in terms of derivatives ", "Subsection",
+ CellChangeTimes->{{3.921684203988577*^9, 3.9216842125709267`*^9}, {
+  3.9216843602631035`*^9, 
+  3.921684377499241*^9}},ExpressionUUID->"bad3632f-54e5-4487-9523-\
+c436b9712fa1"],
+
+Cell[TextData[{
+ "What if we had a similar differential equation of the form \n\n",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"y", "''"}], "[", "t", "]"}], "==", 
+    RowBox[{"Sin", "[", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"y", "'"}], "[", "t", "]"}]], "t"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"y", "[", "0", "]"}], "==", 
+    FractionBox["1", "2"]}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"y", "'"}], "[", "0", "]"}], "==", 
+    FractionBox["1", "4"]}]}]], "Input",
+  CellChangeTimes->{{3.9216844266950836`*^9, 3.9216844599135036`*^9}, {
+   3.9216844921485786`*^9, 3.921684535832432*^9}},ExpressionUUID->
+  "445ce600-6287-4579-be8d-543abe2adb0c"]
+}], "Text",
+ CellChangeTimes->{{3.9216843919824457`*^9, 3.921684419301536*^9}, {
+  3.9216845411822405`*^9, 
+  3.921684541488946*^9}},ExpressionUUID->"0f650289-e739-4619-85f4-\
+17a2f45bc144"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solving Systems of ODEs Numerically", "Subsection",
+ CellChangeTimes->{{3.921684203988577*^9, 
+  3.9216842341368265`*^9}},ExpressionUUID->"e90c5188-35bf-42bb-a3fc-\
+01d0bd9e3fba"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s take a look at this example again \n\ny\
+\[CloseCurlyQuote][t] == a y[t] + b x[t] + Cos[x[t]]\nx\[CloseCurlyQuote][t] \
+== c y[t] + d x[t] + t\n\nWhere we will assume we know the values of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", GridBox[{
+      {"a", "b"},
+      {"c", "d"}
+     }], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5f076e70-f033-4b90-823e-93c83cfefe88"],
+ " == ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", GridBox[{
+      {"1", 
+       RowBox[{"-", "2"}]},
+      {"2", "1"}
+     }], ")"}], TraditionalForm]],ExpressionUUID->
+  "a1a49091-9d24-4565-9545-a15b1c4b04d7"],
+ "\nand that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {
+        RowBox[{"y", "[", "0", "]"}]},
+       {
+        RowBox[{"x", "[", "0", "]"}]}
+      }], ")"}], " ", "==", " ", 
+    RowBox[{"(", GridBox[{
+       {"1"},
+       {"0"}
+      }], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "228ae80d-126b-496c-a139-e7ef8f5b784c"]
+}], "Text",
+ CellChangeTimes->{{3.921684271875428*^9, 3.921684335284886*^9}, {
+  3.9216845747017255`*^9, 3.9216845827443542`*^9}, {3.921684709116428*^9, 
+  3.921684709363427*^9}},ExpressionUUID->"6f0ed677-680d-47fc-9082-\
+4b749eb66813"]
+}, Closed]],
+
+Cell["WhenEvents", "Subsection",
+ CellChangeTimes->{{3.921684203988577*^9, 3.9216842341368265`*^9}, {
+   3.9216848653895617`*^9, 3.9216848688996673`*^9}, 
+   3.9216848998925743`*^9},ExpressionUUID->"86162f12-5890-4caa-a1e8-\
+1d13c1bd1628"]
+}, Closed]]
+},
+WindowSize->{960, 478},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (July 24, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"86ad1c1b-817d-4540-80e2-5b4c44fe4867"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 262, 6, 35, "Text",ExpressionUUID->"caa76051-8429-4edf-abcb-332ad2e01c5f"],
+Cell[CellGroupData[{
+Cell[845, 30, 281, 6, 67, "Section",ExpressionUUID->"9ac59d32-5f92-42e5-b945-595a9f9a129a"],
+Cell[CellGroupData[{
+Cell[1151, 40, 252, 4, 54, "Subsection",ExpressionUUID->"0b28f976-1be7-45ea-80f5-26e6081147a3"],
+Cell[1406, 46, 579, 17, 35, "Text",ExpressionUUID->"96268954-a21c-42c8-8b47-12470bf249ac"],
+Cell[1988, 65, 154, 3, 28, "Input",ExpressionUUID->"c3c654bd-639d-4d13-b197-d52aafdaeb73"],
+Cell[2145, 70, 189, 3, 35, "Text",ExpressionUUID->"1f50f839-2848-4a0d-820a-be68508daed5"],
+Cell[2337, 75, 154, 3, 28, "Input",ExpressionUUID->"3d3dd40c-6a74-4ba4-a6f3-847e1fbd8e72"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2528, 83, 253, 4, 38, "Subsection",ExpressionUUID->"a3e08346-a5ff-4f45-bfa8-a3381a2be2fd"],
+Cell[2784, 89, 476, 9, 104, "Text",ExpressionUUID->"8e568ae3-ee5e-4001-b556-97c5b38ca7c8"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3297, 103, 273, 4, 38, "Subsection",ExpressionUUID->"493acf42-bc71-4277-9078-a1ad54318eb6"],
+Cell[3573, 109, 419, 9, 81, "Text",ExpressionUUID->"6b56d3ce-198a-4cf3-af08-e6004421ee28"],
+Cell[3995, 120, 373, 9, 104, "Text",ExpressionUUID->"83bbcb80-1ed8-4b34-9f1a-bc57718e5da2"],
+Cell[4371, 131, 741, 18, 76, "Text",ExpressionUUID->"d107646e-b68e-4dd6-907f-c0115b537447"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5161, 155, 285, 6, 67, "Section",ExpressionUUID->"05657010-7625-415e-803b-13429a4edd0f"],
+Cell[CellGroupData[{
+Cell[5471, 165, 181, 3, 54, "Subsection",ExpressionUUID->"8ad77b7f-38b5-4e0c-b547-77d2199aaf97"],
+Cell[5655, 170, 1264, 34, 86, "Text",ExpressionUUID->"8d1f7299-3ef5-4c88-b5d4-2ffe32dd56b6"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6956, 209, 244, 4, 38, "Subsection",ExpressionUUID->"bad3632f-54e5-4487-9523-c436b9712fa1"],
+Cell[7203, 215, 973, 27, 125, "Text",ExpressionUUID->"0f650289-e739-4619-85f4-17a2f45bc144"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8213, 247, 185, 3, 38, "Subsection",ExpressionUUID->"e90c5188-35bf-42bb-a3fc-01d0bd9e3fba"],
+Cell[8401, 252, 1285, 41, 204, "Text",ExpressionUUID->"6f0ed677-680d-47fc-9082-4b749eb66813"]
+}, Closed]],
+Cell[9701, 296, 239, 4, 38, "Subsection",ExpressionUUID->"86162f12-5890-4caa-a1e8-1d13c1bd1628"]
+}, Closed]]
+}
+]
+*)
+
